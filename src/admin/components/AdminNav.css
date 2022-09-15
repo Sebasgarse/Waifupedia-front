@@ -1,0 +1,24 @@
+.admin-nav__item {
+  cursor: pointer;
+}
+
+.admin-nav__item:hover {
+  background-color: blue;
+  color: white;
+  font-weight: 700;
+}
+
+.admin-nav__list {
+  border-radius: 0;
+}
+
+.admin-nav {
+  height: 100vh;
+  background-color: gray;
+  border: 0.5px solid darkblue;
+}
+
+.admin-nav a {
+  text-decoration: none;
+  color: black;
+}
