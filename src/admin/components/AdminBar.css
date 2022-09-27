@@ -1,0 +1,20 @@
+.admin-bar__search-bar {
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-right: 10em;
+}
+
+.admin-bar__search-bar i {
+  color: #6f7389;
+  margin-right: 5px;
+}
+
+.admin-bar__search-bar input {
+  border: none;
+  background-color: inherit;
+}
+
+.admin-bar__search-bar input:focus {
+  outline: none;
+}

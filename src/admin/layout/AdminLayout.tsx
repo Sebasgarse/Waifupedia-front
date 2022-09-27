@@ -10,6 +10,7 @@ export const AdminLayout = ({ children }) => {
     backgroundAttachment: "fixed",
     backgroundSize: "cover",
     height: "100vh",
+    minHeight: "500px",
   };
   const templateCss: CSS.Properties = {
     backgroundColor: "#EAEEF4",

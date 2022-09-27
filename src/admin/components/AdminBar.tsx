@@ -1,20 +1,23 @@
 import React from "react";
+import "./AdminBar.css";
 
 export const AdminBar = () => {
   return (
     <div className="d-flex flex-wrap align-items-center justify-content-end justify-content-lg-end">
-      <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-        <input
-          type="search"
-          className="form-control form-control"
-          placeholder="Search..."
-          aria-label="Search"
-        />
+      <form
+        className="admin-bar__search-bar d-flex align-items-center"
+        role="search"
+      >
+        <i className="fas fa-search"></i>
+        <input type="search" placeholder="Search..." aria-label="Search" />
       </form>
-      <div className="row">
-        <i className="col fas fa-cog"></i>
+      <div
+        className="d-flex justify-content-around align-items-center"
+        style={{ width: "6em" }}
+      >
+        <i className="fas fa-cog"></i>
         <div
-          className="col"
+          className=""
           style={{
             borderRadius: "100%",
             background: "gray",
