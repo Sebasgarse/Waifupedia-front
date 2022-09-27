@@ -1,21 +1,69 @@
+.admin-nav {
+  height: 100%;
+  background-color: #353a56;
+  border-radius: 20px;
+  padding: 15px;
+  overflow-y: hidden;
+  z-index: 3;
+  position: absolute;
+  width: 15em;
+}
+
+.admin-nav__options {
+  display: flex;
+  justify-content: space-between;
+  background-color: #748cf1;
+  width: 100%;
+  height: 3rem;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.admin-nav__options-menu {
+  display: flex;
+  background-color: #6780e2;
+  border-radius: 9px;
+  width: 1.7em;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: white;
+}
+
 .admin-nav__item {
+  display: flex;
+  font-size: 10px;
   cursor: pointer;
+  color: #6f7389;
+  background-color: #353a56;
+  border: none;
+  margin-bottom: 10px;
+  justify-content: baseline;
+  padding-left: 50px;
+}
+
+.admin-nav__item i {
+  margin-right: 10px;
+  font-size: 13px;
+}
+
+.admin-nav__item--active .admin-nav__item {
+  color: white;
+  background-color: #303551;
+  font-weight: 700;
+  border-radius: 10px;
 }
 
 .admin-nav__item:hover {
-  background-color: blue;
+  background-color: #303551;
   color: white;
   font-weight: 700;
+  border-radius: 10px;
 }
 
 .admin-nav__list {
   border-radius: 0;
-}
-
-.admin-nav {
-  height: 100vh;
-  background-color: gray;
-  border: 0.5px solid darkblue;
 }
 
 .admin-nav a {
