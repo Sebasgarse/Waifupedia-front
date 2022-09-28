@@ -22,3 +22,23 @@ export const imageDataUpload = async (data) => {
     return null;
   }
 };
+
+export const getAllImages = async () => {
+  const url = URL_BASE;
+  try {
+    const resp = await Axios({ url, method: "get" });
+
+    if (resp.status !== 200) {
+      console.warn(resp);
+      throw new Error("No se pudo recibir informacion de imagen");
+    }
+
+    const waifu = resp.data;
+    console.log(waifu);
+    return waifu;
+  } catch (error) {
+    console.error(error);
+    // throw new Error(error.message);
+    return null;
+  }
+};

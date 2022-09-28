@@ -18,6 +18,7 @@ export const AdminLayout = ({ children }) => {
     height: "100%",
     borderRadius: "20px",
     padding: "20px 20px 20px 16em",
+    overflow: "hidden",
   };
 
   return (
@@ -28,7 +29,7 @@ export const AdminLayout = ({ children }) => {
             <AdminNav />
             <div style={templateCss}>
               <AdminBar />
-              <div>{children}</div>
+              {children}
             </div>
           </div>
         </div>

@@ -1,6 +1,10 @@
 import { fileUpload } from "../../helpers/fileUpload";
-import { imageDataUpload } from "../../helpers/imageDataHttp";
-import { setUploading } from "../slices/PictureSlice";
+import { getAllImages, imageDataUpload } from "../../helpers/imageDataHttp";
+import {
+  setUploading,
+  setLoadingImages,
+  setPictures,
+} from "../slices/PictureSlice";
 
 export const startUploadingFile = (files = []) => {
   return async (dispatch) => {
@@ -16,5 +20,15 @@ export const startUploadingFile = (files = []) => {
     console.log(imageDatas);
 
     dispatch(setUploading(false));
+  };
+};
+
+export const startLoadingImages = () => {
+  return async (dispatch) => {
+    dispatch(setLoadingImages(true));
+
+    const pictures = await getAllImages();
+
+    dispatch(setPictures(pictures));
   };
 };

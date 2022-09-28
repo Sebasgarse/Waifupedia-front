@@ -1,0 +1,17 @@
+.gallery {
+  overflow-y: scroll;
+  height: 80%;
+}
+
+/* .gallery__card-container {
+    
+} */
+
+.gallery-card {
+  height: 10rem;
+}
+
+.gallery-card__image {
+  height: 100%;
+  width: 100%;
+}
