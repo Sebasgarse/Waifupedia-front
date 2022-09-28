@@ -1,11 +1,7 @@
 import React from "react";
+import { Picture } from "../../interfaces/Pictures";
 
-interface GalleryCardProps {
-  title: string;
-  size_x: number;
-  size_y: number;
-  url: string;
-}
+interface GalleryCardProps extends Picture {}
 
 export const GalleryCard = (props: GalleryCardProps) => {
   const { title, url } = props;

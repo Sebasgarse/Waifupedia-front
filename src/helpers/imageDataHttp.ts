@@ -1,8 +1,9 @@
 import Axios from "axios";
+import { Picture } from "../interfaces/Pictures";
 
 const URL_BASE = "http://localhost:3001/images";
 
-export const imageDataUpload = async (data) => {
+export const imageDataUpload = async (data: Picture[]): Promise<Array<any>> => {
   if (!data) return null;
 
   const url = URL_BASE;
@@ -23,7 +24,7 @@ export const imageDataUpload = async (data) => {
   }
 };
 
-export const getAllImages = async () => {
+export const getAllImages = async (): Promise<Picture[]> => {
   const url = URL_BASE;
   try {
     const resp = await Axios({ url, method: "get" });

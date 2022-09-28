@@ -1,14 +1,8 @@
 import React from "react";
 import { GalleryCard } from "./GalleryCard";
+import { Picture } from "../../interfaces/Pictures";
 
 import "./Gallery.css";
-
-interface Picture {
-  title: string;
-  size_x: number;
-  size_y: number;
-  url: string;
-}
 
 interface GalleryProps {
   pictures: Picture[];
