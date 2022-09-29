@@ -8,10 +8,44 @@
 } */
 
 .gallery-card {
-  height: 10rem;
+  position: relative;
+  height: 12rem;
+  background-color: rgba(116, 140, 241, 0.2);
+  box-shadow: rgba(111, 115, 137, 0.2) 1px 1px 4px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .gallery-card__image {
   height: 100%;
   width: 100%;
+}
+
+.gallery-card:hover .gallery-card__buttons-container {
+  visibility: visible;
+}
+
+.gallery-card__buttons-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+  visibility: hidden;
+}
+
+.gallery-card__button {
+  height: 2rem;
+  width: 2em;
+  text-align: center;
+  color: white;
+  box-shadow: rgba(111, 115, 137, 0.5) 1px 1px 6px;
+  border-radius: 100%;
+  border: none;
+  background-color: #748cf1;
+}
+
+.gallery-card__button:hover {
+  outline: none;
+  background-color: #6780e2;
 }

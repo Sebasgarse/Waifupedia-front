@@ -12,7 +12,7 @@ export const GalleryBar = () => {
     dispatch(startUploadingFile(target.files));
   };
   return (
-    <div>
+    <div className="mt-3 mb-3">
       <input
         type="file"
         multiple
@@ -21,10 +21,11 @@ export const GalleryBar = () => {
         style={{ display: "none" }}
       />
       <button
+        className="btn btn-primary"
         disabled={uploading}
         onClick={() => uploadFileInputRef.current.click()}
       >
-        <i className="fas fas-image" /> Add Image
+        <i className="fas fa-plus" /> Add Image
       </button>
     </div>
   );

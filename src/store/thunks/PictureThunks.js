@@ -1,9 +1,15 @@
 import { fileUpload } from "../../helpers/fileUpload";
-import { getAllImages, imageDataUpload } from "../../helpers/imageDataHttp";
+import {
+  deleteImageFromServer,
+  getAllImages,
+  imageDataUpload,
+} from "../../helpers/imageDataHttp";
 import {
   setUploading,
   setLoadingImages,
   setPictures,
+  deletePicture,
+  addPictures,
 } from "../slices/PictureSlice";
 
 export const startUploadingFile = (files = []) => {
@@ -16,10 +22,10 @@ export const startUploadingFile = (files = []) => {
     }
     const imageDatas = await Promise.all(promises);
 
-    await imageDataUpload(imageDatas);
-    console.log(imageDatas);
+    const imageNewDatas = await imageDataUpload(imageDatas);
+    console.log(imageNewDatas);
 
-    dispatch(setUploading(false));
+    dispatch(addPictures(imageNewDatas));
   };
 };
 
@@ -30,5 +36,15 @@ export const startLoadingImages = () => {
     const pictures = await getAllImages();
 
     dispatch(setPictures(pictures));
+  };
+};
+
+export const startDeletingImage = (id) => {
+  return async (dispatch) => {
+    dispatch(setLoadingImages(true));
+
+    await deleteImageFromServer(id);
+
+    dispatch(deletePicture(id));
   };
 };

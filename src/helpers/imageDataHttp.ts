@@ -19,7 +19,6 @@ export const imageDataUpload = async (data: Picture[]): Promise<Array<any>> => {
     return waifu;
   } catch (error) {
     console.error(error);
-    // throw new Error(error.message);
     return null;
   }
 };
@@ -39,7 +38,44 @@ export const getAllImages = async (): Promise<Picture[]> => {
     return waifu;
   } catch (error) {
     console.error(error);
-    // throw new Error(error.message);
     return null;
+  }
+};
+
+export const deleteImageFromServer = async (id: number): Promise<boolean> => {
+  const url = URL_BASE + "/" + id;
+
+  try {
+    const resp = await Axios({ url, method: "delete" });
+
+    if (resp.status !== 200) {
+      console.warn(resp);
+      throw new Error("No se pudo Eliminar imagen");
+    }
+
+    console.log(resp);
+    return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+};
+
+export const getRandomImage = async (): Promise<any> => {
+  const url = URL_BASE + "/rand";
+
+  try {
+    const resp = await Axios({ url, method: "get" });
+
+    if (resp.status !== 200) {
+      console.warn(resp);
+      throw new Error("No se pudo conseguir imagen");
+    }
+
+    console.log(resp);
+    return resp.data;
+  } catch (error) {
+    console.error(error);
+    return {};
   }
 };
