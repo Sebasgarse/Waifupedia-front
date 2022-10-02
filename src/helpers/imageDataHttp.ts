@@ -1,7 +1,7 @@
 import Axios from "axios";
 import { Picture } from "../interfaces/Pictures";
 
-const URL_BASE = "http://localhost:3001/images";
+const URL_BASE = "http://localhost:3001/pictures";
 
 export const imageDataUpload = async (data: Picture[]): Promise<Array<any>> => {
   if (!data) return null;
@@ -15,7 +15,6 @@ export const imageDataUpload = async (data: Picture[]): Promise<Array<any>> => {
       throw new Error("No se pudo subir informacion de imagen");
 
     const waifu = resp.data;
-    console.log(waifu);
     return waifu;
   } catch (error) {
     console.error(error);
@@ -34,7 +33,6 @@ export const getAllImages = async (): Promise<Picture[]> => {
     }
 
     const waifu = resp.data;
-    console.log(waifu);
     return waifu;
   } catch (error) {
     console.error(error);
@@ -53,7 +51,6 @@ export const deleteImageFromServer = async (id: number): Promise<boolean> => {
       throw new Error("No se pudo Eliminar imagen");
     }
 
-    console.log(resp);
     return true;
   } catch (error) {
     console.error(error);
@@ -61,21 +58,43 @@ export const deleteImageFromServer = async (id: number): Promise<boolean> => {
   }
 };
 
-export const getRandomImage = async (): Promise<any> => {
-  const url = URL_BASE + "/rand";
+export const EditImageFromServer = async (data): Promise<boolean> => {
+  const url = URL_BASE;
 
   try {
-    const resp = await Axios({ url, method: "get" });
+    const resp = await Axios({ url, method: "patch", data });
 
     if (resp.status !== 200) {
       console.warn(resp);
-      throw new Error("No se pudo conseguir imagen");
+      throw new Error("No se pudo Eliminar imagen");
     }
 
-    console.log(resp);
     return resp.data;
   } catch (error) {
     console.error(error);
-    return {};
+    return false;
+  }
+};
+
+export const getRandomImage = async (tag: string = null): Promise<any> => {
+  const url = URL_BASE + "/rand";
+
+  try {
+    let resp;
+    if (tag) {
+      resp = await Axios({ url, method: "post", data: { tag } });
+    } else {
+      resp = await Axios({ url, method: "get" });
+    }
+
+    // if (resp.status !== 200 || resp.status !== 201) {
+    //   console.warn(resp);
+    //   throw new Error("No se pudo conseguir imagen");
+    // }
+
+    return resp.data;
+  } catch (error) {
+    console.error(error);
+    return false;
   }
 };

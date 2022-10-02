@@ -1,0 +1,41 @@
+.mdl-base {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  z-index: 10;
+  background: rgba(125, 125, 125, 0.5);
+  padding: 50px;
+  border-radius: 20px;
+}
+
+.mdl {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.mdl-img {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(111, 115, 137, 0.5);
+  padding: 5px;
+  height: 60vh;
+}
+.mdl-img img {
+  max-height: 100%;
+}
+
+.mdl-form {
+  width: 100%;
+}
+
+.mdl-form input {
+  margin-bottom: 10px;
+}
+
+.mdl-form input[type="text"] {
+  width: 100%;
+}

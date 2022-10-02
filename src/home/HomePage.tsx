@@ -3,14 +3,18 @@ import { getRandomImage } from "../helpers/imageDataHttp";
 import { cloudBanner } from "../helpers/imageManager";
 import { Picture } from "../interfaces/Pictures";
 
-let defaultMainImage: Picture;
+let defaultMainImage: Picture = {
+  url: "",
+  title: "",
+  size_x: 0,
+  size_y: 0,
+};
 
 export const HomePage = () => {
   const [state, setState] = React.useState(defaultMainImage);
   useEffect(() => {
-    getRandomImage().then((image) => {
-      setState(image);
-      console.log(image);
+    getRandomImage("banner").then((image) => {
+      setState(image ? image : defaultMainImage);
     });
   }, []);
   return (
@@ -21,7 +25,7 @@ export const HomePage = () => {
             <img
               src={state && cloudBanner(state.url)}
               className="bd-placeholder-img"
-              alt="title"
+              alt={state.title}
               width="100%"
               height="100%"
             />

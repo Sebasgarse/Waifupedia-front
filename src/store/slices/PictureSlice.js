@@ -7,6 +7,7 @@ const PictureSlice = createSlice({
     loading: false,
     pictures: [],
     alertMessage: "",
+    selected: null,
   },
   reducers: {
     setUploading: (state, { payload }) => {
@@ -29,6 +30,19 @@ const PictureSlice = createSlice({
       state.pictures = state.pictures.concat(payload);
       state.uploading = false;
     },
+    editPicture: (state, { payload }) => {
+      console.log(payload);
+      state.pictures = state.pictures.map((picture) =>
+        picture.id === payload.id ? payload : picture
+      );
+      state.uploading = false;
+    },
+    selectPicture: (state, { payload }) => {
+      state.selected = payload;
+    },
+    deselectPicture: (state) => {
+      state.selected = null;
+    },
   },
 });
 
@@ -38,6 +52,9 @@ export const {
   setLoadingImages,
   deletePicture,
   addPictures,
+  selectPicture,
+  deselectPicture,
+  editPicture,
 } = PictureSlice.actions;
 
 export default PictureSlice.reducer;

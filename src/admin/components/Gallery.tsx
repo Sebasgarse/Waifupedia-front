@@ -14,7 +14,7 @@ export const Gallery = (props: GalleryProps) => {
     <div className="row gallery">
       {pictures.map((picture) => (
         <div key={picture.url} className="col-3 gallery__card-container">
-          <GalleryCard {...picture} />
+          <GalleryCard picture={picture} />
         </div>
       ))}
     </div>
