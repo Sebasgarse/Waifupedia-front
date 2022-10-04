@@ -39,3 +39,20 @@
 .mdl-form input[type="text"] {
   width: 100%;
 }
+
+.mdl-exit {
+  background: none;
+  border: none;
+  border-radius: 100%;
+  text-align: center;
+  color: #303551;
+  font-size: 20px;
+  transition: color ease-in-out 0.1s;
+}
+
+.mdl-exit:hover {
+  color: #ff464a;
+  border: none;
+  outline: none;
+  background: none;
+}

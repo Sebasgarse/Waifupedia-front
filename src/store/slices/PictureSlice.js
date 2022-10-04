@@ -8,6 +8,8 @@ const PictureSlice = createSlice({
     pictures: [],
     alertMessage: "",
     selected: null,
+    uploadSuccess: false,
+    editSuccess: false,
   },
   reducers: {
     setUploading: (state, { payload }) => {
@@ -29,19 +31,22 @@ const PictureSlice = createSlice({
     addPictures: (state, { payload }) => {
       state.pictures = state.pictures.concat(payload);
       state.uploading = false;
+      state.uploadSuccess = true;
     },
     editPicture: (state, { payload }) => {
-      console.log(payload);
       state.pictures = state.pictures.map((picture) =>
         picture.id === payload.id ? payload : picture
       );
       state.uploading = false;
+      state.editSuccess = true;
     },
     selectPicture: (state, { payload }) => {
       state.selected = payload;
+      state.editSuccess = false;
     },
     deselectPicture: (state) => {
       state.selected = null;
+      state.editSuccess = false;
     },
   },
 });

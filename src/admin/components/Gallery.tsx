@@ -12,9 +12,9 @@ export const Gallery = (props: GalleryProps) => {
   const { pictures } = props;
   return (
     <div className="row gallery">
-      {pictures.map((picture) => (
+      {pictures.map((picture, i) => (
         <div key={picture.url} className="col-3 gallery__card-container">
-          <GalleryCard picture={picture} />
+          <GalleryCard picture={picture} duration={i} />
         </div>
       ))}
     </div>

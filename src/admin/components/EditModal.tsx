@@ -11,6 +11,9 @@ export const EditModal = () => {
   const selected: Picture | null = useSelector(
     (state: any) => state.pictures.selected
   );
+  const editSuccess: boolean = useSelector(
+    (state: any) => state.pictures.editSuccess
+  );
   const [state, setState] = React.useState(selected || createEmptyPicture());
   React.useEffect(() => {
     setState(selected || createEmptyPicture());
@@ -33,24 +36,26 @@ export const EditModal = () => {
     e.preventDefault();
     dispatch(startEditingImage(state));
   };
+  if (!selected) {
+    return null;
+  }
   return (
     <div
-      className="mdl-base"
+      className="mdl-base animate__animated animate__fadeIn animate__faster"
       tabIndex={-1}
       role="dialog"
       id="modalSheet"
-      style={{
-        display: selected ? "block" : "none",
-      }}
     >
-      <div className="mdl">
+      <div className="mdl animate__animated animate__fadeInDown animate__faster">
         <div className="row">
           <div className="col-8 mdl-img">
             <img src={state?.url} alt={state?.title} />
           </div>
           <div className="col-4">
             <div className="d-flex justify-content-end">
-              <button onClick={handleExit}>X</button>
+              <button className="mdl-exit" onClick={handleExit}>
+                <i className="fas fa-times"></i>
+              </button>
             </div>
             <form className="mdl-form" onSubmit={handleSubmit}>
               <label>
@@ -81,6 +86,9 @@ export const EditModal = () => {
                 />
               </label>
               <input type="submit" value="Submit Changes" />
+              {editSuccess && (
+                <p className="text-success text-center">Edited Successfully</p>
+              )}
             </form>
           </div>
         </div>
